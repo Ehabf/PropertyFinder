@@ -21,14 +21,12 @@ import cucumber.api.java.en.When;
 
 public class StepDef {
 
-	Properties props = helper.PropertiesManager.getProperties();
-	String browser = props.getProperty("browser");
+	Properties props = new Properties();
 	
-	//Properties props = new Properties();
+	String browser = System.getProperty("browser");
 	
-	WebDriver driver = DriverManager.initializeDriver("PhantomJS");
+	WebDriver driver = DriverManager.initializeDriver(browser);
 
-	
 	HomePage homePage = new HomePage(driver);
 	SearchResultsPage searchResultsPage = new SearchResultsPage(driver);
 	AgentSearchResultsPage agentSearchResultsPage = new AgentSearchResultsPage(

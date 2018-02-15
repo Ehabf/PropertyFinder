@@ -13,5 +13,6 @@ Feature: Property Finder Automation
     Then assert that latest count is less than the previous count
 
     Examples: 
+    
       | country | agent_country |
       | UAE     | India         |
