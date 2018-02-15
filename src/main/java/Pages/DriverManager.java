@@ -47,19 +47,32 @@ public class DriverManager {
 		}
 	}
 
-	public static WebDriver createPhantomJSInstance() {
+	protected static WebDriver createPhantomJSInstance() {
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setJavascriptEnabled(true);
 		caps.setCapability("takesScreenshot", true);
-		caps.setCapability(
-				PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
-				System.getProperty("user.dir")
-				+ "/src/main/resources/webdrivers/phantomjs/phantomjs.exe");
+
+		if (OSValidators.isUnix()) {
+
+			caps.setCapability(
+					PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
+					System.getProperty("user.dir")
+							+ "/src/main/resources/webdrivers/phantomjs/linux/phantomjs");
+
+		} else if (OSValidators.isWindows()) {
+
+			caps.setCapability(
+					PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
+					System.getProperty("user.dir")
+							+ "/src/main/resources/webdrivers/phantomjs/win/phantomjs.exe");
+
+		}
+
 		WebDriver driver = new PhantomJSDriver(caps);
 		driver.manage().window().maximize();
 		return driver;
 	}
-
+	
 	protected static WebDriver createChromeDriver() {
 		WebDriver driver;
 
