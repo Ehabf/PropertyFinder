@@ -4,6 +4,7 @@ import helper.OSValidators;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -70,6 +71,7 @@ public class DriverManager {
 
 		WebDriver driver = new PhantomJSDriver(caps);
 		driver.manage().window().maximize();
+		//driver.manage().window().setSize(new Dimension(1280, 1024));
 		return driver;
 	}
 	
@@ -97,7 +99,7 @@ public class DriverManager {
 		}
 
 		driver = new ChromeDriver();
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 		return driver;
 	}
 
