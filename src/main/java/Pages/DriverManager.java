@@ -126,9 +126,7 @@ public class DriverManager {
 //							+ "/src/main/resources/webdrivers/firefox/linux/geckodriver.tar.gz");
 			
 			System.setProperty(
-					"webdriver.gecko.driver",
-					System.getProperty("user.dir")
-							+ "/usr/local/bin/geckodriver");
+					"webdriver.gecko.driver", "/usr/local/bin/geckodriver");
 		}
 
 		driver = new FirefoxDriver();
