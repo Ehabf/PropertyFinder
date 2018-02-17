@@ -120,10 +120,15 @@ public class DriverManager {
 							+ "/src/main/resources/webdrivers/firefox/win/geckodriver.exe");
 		} else if (OSValidators.isUnix()) {
 
+//			System.setProperty(
+//					"webdriver.gecko.driver",
+//					System.getProperty("user.dir")
+//							+ "/src/main/resources/webdrivers/firefox/linux/geckodriver.tar.gz");
+			
 			System.setProperty(
 					"webdriver.gecko.driver",
 					System.getProperty("user.dir")
-							+ "/src/main/resources/webdrivers/firefox/linux/geckodriver.tar.gz");
+							+ "/usr/local/bin/geckodriver");
 		}
 
 		driver = new FirefoxDriver();
