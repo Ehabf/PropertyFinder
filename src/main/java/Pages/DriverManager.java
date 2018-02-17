@@ -123,7 +123,7 @@ public class DriverManager {
 			System.setProperty(
 					"webdriver.gecko.driver",
 					System.getProperty("user.dir")
-							+ "/src/main/resources/webdrivers/firefox/linux/geckodriver-v0.19.1-linux64.tar.gz");
+							+ "/src/main/resources/webdrivers/firefox/linux/geckodriver.tar.gz");
 		}
 
 		driver = new FirefoxDriver();
