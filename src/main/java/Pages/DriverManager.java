@@ -55,10 +55,13 @@ public class DriverManager {
 
 		if (OSValidators.isUnix()) {
 
+//			caps.setCapability(
+//					PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
+//					System.getProperty("user.dir")
+//							+ "/src/main/resources/webdrivers/phantomjs/linux/phantomjs");
+			
 			caps.setCapability(
-					PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
-					System.getProperty("user.dir")
-							+ "/src/main/resources/webdrivers/phantomjs/linux/phantomjs");
+					PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, "/usr/local/bin/phantomjs");
 
 		} else if (OSValidators.isWindows()) {
 
@@ -92,10 +95,12 @@ public class DriverManager {
 							+ "/src/main/resources/webdrivers/chrome/win/chromedriver.exe");
 		} else if (OSValidators.isUnix()) {
 
+//			System.setProperty(
+//					"webdriver.chrome.driver",
+//					System.getProperty("user.dir")
+//							+ "/src/main/resources/webdrivers/chrome/linux/chromedriver");
 			System.setProperty(
-					"webdriver.chrome.driver",
-					System.getProperty("user.dir")
-							+ "/src/main/resources/webdrivers/chrome/linux/chromedriver");
+					"webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 		}
 
 		driver = new ChromeDriver();
